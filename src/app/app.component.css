@@ -2,7 +2,12 @@ p {
   font-family: Lato;
 }
 .container {
-margin:20px;
+
+ 
+  border: 60px solid;
+  padding: 50px;
+  margin: 20px;
 background-color: rgb(11, 82, 148);
 color:white;
+
 }
