@@ -2,57 +2,67 @@
 
 <div class="container" >
     
-    <h6 >FILE DISPUTE</h6>
+    <h6 class="watercolor" >FILE DISPUTE</h6>
     <h5> Fill out the form below</h5>
     <h6>Lorem ipsum dolor sit amet, consectetur adipisiscing elit,sed do eiusmod tempor incidiunt ut labore et dolore magna aliqua<br> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip laboris nisi  </h6>
 
     <br>
 
 
-  <form [formGroup]="loginForm">  
+  <form [formGroup]="myform">  
 
-    <div class="form-group row">
-         <label for="name" class="col-sm-2 col-form-label">FULLNAME</label>
-       <div class="col-sm-10">
-          <input type="email" class="form-control" id="fullname">
+    <div class="form-group row  ">
+         <label for="name" class="col-sm-2 col-form-label  ">FULLNAME</label>
+       <div class="col-sm-8 " >
+          <input type="email" class="form-control  " id="fullname" formControlName="name">
+          <span class ="error" *ngIf="myform.controls.name.invalid && myform.controls.name.touched">Name is not valid</span>
+          
       </div>
     </div>
 
 
+
+
+
      <div class="form-group row">
-         <label for="email" class="col-sm-2 col-form-label">Email</label>
-       <div class="col-sm-10">
-          <input type="email" class="form-control" id="email">
+         <label for="email" class="col-sm-2 col-form-label">Email<span class="compulsory">*</span></label>
+       <div class="col-sm-8">
+          <input type="email" class="form-control" placeholder="e.g. email@email.com" id="email">
       </div>
     </div>
 
 
        
       <div class="form-group row">
-         <label for="phone" class="col-sm-2 col-form-label">Phone</label>
-       <div class="col-sm-8">
-          <input type="email" class="form-control" id="phone">
+         <label for="phone" class="col-sm-2 col-form-label ">Phone</label>
+       <div class="col-sm-6">
+          <input type="text" class="form-control "  placeholder="(555)555-5555"id="phone">
       </div>
     </div>
 
     
 
-    <div class="form-group">
-    <label for="exampleFormControlFile1">Attachment</label>
-    <input type="file" class="form-control-file" id="attachment">
+    <div class="form-group row">
+    <label for="exampleFormControlFile1 col-sm-2 pl-3" >Upload Attachment</label>
+    
+    <div class="col-sm-8">
+    <input type="file"  class="form-control-file ml-4  " id="attachment">
+    </div>
   </div>
 
 
+
+
       <div class="form-group row">
-         <label for="comment" class="col-sm-2 col-form-label">Comment</label>
-       <div class="col-sm-10">
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="9"></textarea>
+         <label for="comment" class="col-sm-2 col-form-label ">Comment<span class="compulsory">*</span></label>
+       <div class="col-sm-8">
+          <textarea class="form-control " id="exampleFormControlTextarea1" rows="9"></textarea>
       </div>
     </div>
     
-
-      <button type="button" class="btn btn-success float-right">Submit DISPUTE</button>
-    
+        <div class="form-group row float-none">
+      <button type="button" class="btn btn-success float-lg-right">SUBMIT DISPUTE</button>
+        </div>
 
 
 

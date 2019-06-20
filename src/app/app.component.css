@@ -4,10 +4,21 @@ p {
 .container {
 
  
-  border: 60px solid;
-  padding: 50px;
-  margin: 20px;
-background-color: rgb(11, 82, 148);
+  border:90px;
+  padding: 90px;
+  margin: 30px;
+background-color: rgba(4, 7, 161, 0.842);
 color:white;
 
 }
+.error{
+  color:red;
+}
+.watercolor{
+   color: rgb(115, 131, 221); 
+  
+}
+.compulsory{
+  color: red;
+}
+
