@@ -2,6 +2,7 @@ p {
   font-family: Lato;
 }
 .container {
-margin:40px;
-background-color:pri
+margin:20px;
+background-color: rgb(11, 82, 148);
+color:white;
 }
