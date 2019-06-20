@@ -14,7 +14,7 @@
     <div class="form-group row  ">
          <label for="name" class="col-sm-2 col-form-label  ">FULLNAME</label>
        <div class="col-sm-8 " >
-          <input type="email" class="form-control  " id="fullname" formControlName="name">
+          <input type="email" class="form-control pull-left   " id="fullname" formControlName="name">
           <span class ="error" *ngIf="myform.controls.name.invalid && myform.controls.name.touched">Name is not valid</span>
           
       </div>
@@ -27,7 +27,7 @@
      <div class="form-group row">
          <label for="email" class="col-sm-2 col-form-label">Email<span class="compulsory">*</span></label>
        <div class="col-sm-8">
-          <input type="email" class="form-control" placeholder="e.g. email@email.com" id="email">
+          <input type="email" class="form-control pull-left" placeholder="e.g. email@email.com" id="email">
       </div>
     </div>
 
@@ -36,17 +36,17 @@
       <div class="form-group row">
          <label for="phone" class="col-sm-2 col-form-label ">Phone</label>
        <div class="col-sm-6">
-          <input type="text" class="form-control "  placeholder="(555)555-5555"id="phone">
+          <input type="text" class="form-control pull-left "  placeholder="(555)555-5555"id="phone">
       </div>
     </div>
 
     
 
     <div class="form-group row">
-    <label for="exampleFormControlFile1 col-sm-2 pl-3" >Upload Attachment</label>
+    <label for="exampleFormControlFile1 col-sm-2 pl-3" >Upload <br> Attachment</label>
     
     <div class="col-sm-8">
-    <input type="file"  class="form-control-file ml-4  " id="attachment">
+    <input type="file"  class="form-control-file ml-4  pull-left " id="attachment">
     </div>
   </div>
 
@@ -56,12 +56,15 @@
       <div class="form-group row">
          <label for="comment" class="col-sm-2 col-form-label ">Comment<span class="compulsory">*</span></label>
        <div class="col-sm-8">
-          <textarea class="form-control " id="exampleFormControlTextarea1" rows="9"></textarea>
+          <textarea class="form-control pull-left" id="exampleFormControlTextarea1" rows="9"></textarea>
       </div>
     </div>
     
-        <div class="form-group row float-none">
-      <button type="button" class="btn btn-success float-lg-right">SUBMIT DISPUTE</button>
+        <div class="form-group row   col-sm-4 float-right ml-5 ">
+            
+        
+      <button type="button" class="btn btn-success ">SUBMIT DISPUTE</button>
+            
         </div>
 
 

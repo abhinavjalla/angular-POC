@@ -22,3 +22,8 @@ color:white;
   color: red;
 }
 
+.pull-left 
+{ 
+  margin-left: -70px; 
+ }
+
