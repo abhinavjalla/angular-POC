@@ -22,8 +22,11 @@ color:white;
   color: red;
 }
 
-.pull-left 
+.pull-left1 
 { 
-  margin-left: -70px; 
+  margin-left: 70px; 
  }
+ label {
+   text-align:right;
+   }
 
