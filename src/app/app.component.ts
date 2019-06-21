@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators ,NG_VALIDATORS, AbstractControl, ValidationErrors, Validator,} from '@angular/forms';
+
 
 @Component({
   selector: 'my-app',
@@ -29,8 +30,13 @@ export class AppComponent  implements OnInit {
     });
   }
 
+fileSizeValidatorfunction (nameRe: RegExp): ValidatorFn {
+  return (control: AbstractControl): {[key: string]: any} | null => {
+    const forbidden = nameRe.test(control.value);
+    return forbidden ? {'forbiddenName': {value: control.value}} : null;
+  };
+}
+  
+
 
 }
-// ,Validators.pattern('^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$')
-
-//,Validators.pattern(this.pt)
