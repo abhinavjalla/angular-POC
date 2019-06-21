@@ -23,19 +23,24 @@ export class AppComponent  implements OnInit {
   
 
     this.createForm();
+
   }
 
   private createForm() {
     this.myform = new FormGroup({
   
-      name: new FormControl('', [Validators.required,Validators.minLength(5),Validators.pattern(this.namept)]),
+      name: new FormControl('', [Validators.required,Validators.maxLength(20),Validators.pattern(this.namept)]),
       email: new FormControl('', [Validators.required,Validators.minLength(5),Validators.pattern(this.emailpt)]),
       phone: new FormControl('', [Validators.required,Validators.pattern(this.phnpt)]),
       comment:new FormControl('',[Validators.required,Validators.maxLength(500)])
 
     });
   }
+onSubmit(){
+   this.submitted = true;
+   console.log(this.submitted);
 
+}
 
   
 
