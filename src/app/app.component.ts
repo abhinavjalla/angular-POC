@@ -9,33 +9,34 @@ import { FormGroup, FormControl, Validators ,NG_VALIDATORS, AbstractControl, Val
 })
 export class AppComponent  implements OnInit {
 
+  
 
    myform: FormGroup;
+   submitted = false;
+
+  
    emailpt = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
    phnpt =/^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$/;
+   namept = /^[a-zA-Z0-9 ]*$/
    
   ngOnInit() {
+  
+
     this.createForm();
   }
 
   private createForm() {
     this.myform = new FormGroup({
   
-      name: new FormControl('', [Validators.required,Validators.minLength(3)]),
-      email: new FormControl('', [Validators.required,Validators.pattern(this.emailpt)]),
+      name: new FormControl('', [Validators.required,Validators.minLength(5),Validators.pattern(this.namept)]),
+      email: new FormControl('', [Validators.required,Validators.minLength(5),Validators.pattern(this.emailpt)]),
       phone: new FormControl('', [Validators.required,Validators.pattern(this.phnpt)]),
-      attachment: new FormControl('', []),
-      
       comment:new FormControl('',[Validators.required,Validators.maxLength(500)])
+
     });
   }
 
-fileSizeValidatorfunction (nameRe: RegExp): ValidatorFn {
-  return (control: AbstractControl): {[key: string]: any} | null => {
-    const forbidden = nameRe.test(control.value);
-    return forbidden ? {'forbiddenName': {value: control.value}} : null;
-  };
-}
+
   
 
 
