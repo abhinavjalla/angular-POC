@@ -1,21 +1,22 @@
-p {
-  font-family: Lato;
-}
+
 .container {
 
- 
 
   padding: 100px;
   margin: 60px;
-background-color: rgba(4, 7, 161, 0.842);
-color:white;
+  background-color: rgb(17,75,125);
+ font-size: 12px;
+  color: #f9fbfd;
+  position: relative;
+  text-align: center;
+
 
 }
 .error{
   color:red;
 }
 .watercolor{
-   color: rgb(115, 131, 221); 
+   color: rgb(94, 173, 226); 
   
 }
 .compulsory{
@@ -30,3 +31,14 @@ color:white;
    text-align:right;
    }
 
+   .cp{
+     text-align: left;
+   }
+
+   .bstyle{
+     background-color: rgb(141,199,63);
+   }
+
+  
+
+ 
