@@ -23,7 +23,9 @@ export class AppComponent  implements OnInit {
       name: new FormControl('', [Validators.required,Validators.minLength(3)]),
       email: new FormControl('', [Validators.required,Validators.pattern(this.emailpt)]),
       phone: new FormControl('', [Validators.required,Validators.pattern(this.phnpt)]),
-      comment:new FormControl('',[Validators.required,Validators.minLength(15)])
+      attachment: new FormControl('', []),
+      
+      comment:new FormControl('',[Validators.required,Validators.maxLength(500)])
     });
   }
 
