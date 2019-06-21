@@ -14,8 +14,8 @@ export class AppComponent  implements OnInit {
    myform: FormGroup;
    submitted = false;
 
-  
-   emailpt = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  //^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$
+   emailpt = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
    phnpt =/^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$/;
    namept = /^[a-zA-Z0-9 ]*$/
    
