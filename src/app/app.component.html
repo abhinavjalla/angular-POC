@@ -9,7 +9,7 @@
     <br>
 
 
-  <form name="myform" (ngSubmit)="onSubmit()" [formGroup]="myform">  
+  <form name="myform" [formGroup]="myform">  
 
     <div class="form-group row  ">
          <label for="name" class="col-sm-2 col-form-label">FULLNAME</label>
@@ -17,7 +17,7 @@
           <input id="name" class="form-control"
       formControlName="name" >
 
-      <span  class ="error" *ngIf="myform.get('name').errors?.required && myform.controls.name.touched   ">name is required.</span> 
+      <span  class ="error" *ngIf="myform.get('name').errors?.required && submitted   ">name is required.</span> 
 
           <span class ="error" *ngIf="myform.get('name').errors?.pattern ">name is not valid </span>
           <span class ="error" *ngIf="myform.get('name').errors?.maxlength ">max length is 20 </span>
@@ -33,7 +33,7 @@
           <input type="text" class="form-control " placeholder="e.g. email@email.com" formControlName="email" id="email1"
            [ngClass]="{'is-invalid':myform.get('email').touched && myform.get('email').invalid}">
 
-          <span  class ="error" *ngIf="myform.get('email').errors?.required && myform.controls.email.touched   ">EMAIL is required.</span> 
+          <span  class ="error" *ngIf="myform.get('email').errors?.required && submitted   ">EMAIL is required.</span> 
 
           <span class ="error" *ngIf="myform.get('email').errors?.pattern ">EMAIL is not valid </span>
 
@@ -75,7 +75,7 @@
         <div class="form-group row   col-sm-4 float-right mr-2  ">
             
         
-      <button type="button" class="btn btn-success bstyle">SUBMIT DISPUTE</button>
+      <button type="button" class="btn btn-success bstyle" (click)="onSubmit()">SUBMIT DISPUTE</button>
             
         </div>
 

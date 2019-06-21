@@ -38,7 +38,7 @@ export class AppComponent  implements OnInit {
   }
 onSubmit(){
    this.submitted = true;
-   console.log(this.submitted);
+   console.log("hello");
 
 }
 
