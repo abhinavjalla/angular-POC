@@ -32,6 +32,7 @@ export class AppComponent  implements OnInit {
       name: new FormControl('', [Validators.required,Validators.maxLength(20),Validators.pattern(this.namept)]),
       email: new FormControl('', [Validators.required,Validators.minLength(5),Validators.pattern(this.emailpt)]),
       phone: new FormControl('', [Validators.required,Validators.pattern(this.phnpt)]),
+      attachment:new FormControl('',this.filetype),
       comment:new FormControl('',[Validators.required,Validators.maxLength(500)])
 
     });
@@ -42,7 +43,21 @@ onSubmit(){
 
 }
 
-  
+   filetype(control:AbstractControl):{[key:string]:any}|null{
+     const filename = control.value;
+     const filetype = filename.substring(filename.lastIndexOf('.')+1)
+     if(filetype.toLowerCase() == 'jpeg'||(filetype.toLowerCase() == 'png')||(filetype.toLowerCase() == 'pdf')||(filetype.toLowerCase() == 'jpg')
+     )
+     {
+      
+       return null;
+     }else
+     {
+       
+       return{'notvalidformat':true};
+     }
+
+  }
 
 
 }
