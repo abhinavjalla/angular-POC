@@ -70,7 +70,8 @@
          <label for="comment" class="col-sm-2 col-form-label ">COMMENT<span class="compulsory">*</span></label>
        <div class="col-sm-8 mt-0">
           <textarea class="form-control " id="Comment" rows="7" formControlName="comment"></textarea>
-          <span class ="error" *ngIf="myform.controls.comment.touched && myform.controls.comment.invalid">Enter 500 below characters</span>
+          <span class ="error" *ngIf="myform.controls.comment.touched && myform.get('comment').errors?.maxlength ">Enter 500 below characters</span>
+           <span class ="error" *ngIf="myform.controls.comment.touched && myform.get('comment').errors?.required ">Comments are required</span>
       </div>
     </div>
     
