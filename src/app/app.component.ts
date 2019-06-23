@@ -13,7 +13,7 @@ export class AppComponent  implements OnInit {
 
    myform: FormGroup;
    submitted = false;
-    filesize =0;
+    fileflag =false;
    filelimit = 5242880;
 
   //^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$
@@ -34,7 +34,7 @@ export class AppComponent  implements OnInit {
       name: new FormControl('', [Validators.required,Validators.maxLength(20),Validators.pattern(this.namept)]),
       email: new FormControl('', [Validators.required,Validators.minLength(5),Validators.pattern(this.emailpt)]),
       phone: new FormControl('', [Validators.required,Validators.pattern(this.phnpt)]),
-      attachment:new FormControl('',[this.filetype]),
+      attachment:new FormControl('',this.filetype),
       comment:new FormControl('',[Validators.required,Validators.maxLength(500)])
 
     });
@@ -52,36 +52,39 @@ onSubmit(){
      if(filetype.toLowerCase() == 'jpeg'||(filetype.toLowerCase() == 'png')||(filetype.toLowerCase() == 'pdf')||(filetype.toLowerCase() == 'jpg')
      )
      {
-      
+      console.log("passed");
        return null;
      }else
      {
-       
+       console.log("failed");
        return{'notvalidformat':true};
      }
 
   }
 
-  filesizecheck(control:AbstractControl):{[key:string]:any}|null{
-    if(this.filesize <=this.filelimit)
-    {
-      console.log("valid size");
-      return null;
+  // filesizecheck(control:AbstractControl):{[key:string]:any}|null{
+  //   if(this.filesize <=this.filelimit)
+  //   {
+  //     console.log("valid size");
+  //     return null;
 
-    }
-    else{
-      console.log("not valid size");
-       return{'notvalidsize':true};
+  //   }
+  //   else{
+  //     console.log("not valid size");
+  //      return{'notvalidsize':true};
 
-    }
-  }
+  //   }
+  // }
 
   getFileDetails (event) {
     for (var i = 0; i < event.target.files.length; i++)
      { 
      
-      this.filesize = event.target.files[i].size;
-      console.log(this.filesize);
+      var filesize = event.target.files[i].size;
+      if(filesize<=this.filelimit){
+        this.fileflag = true;
+      }
+      console.log(filesize);
        
        }
   }
