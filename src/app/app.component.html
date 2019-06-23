@@ -57,7 +57,8 @@
     <label for="attachment" class="pull-left1" >UPLOAD <br> ATTACHMENT</label>
     
     <div class="col-sm-8 ml-3">
-    <input type="file"  class="form-control-file" data-max-size="5120" id="attachment" formControlName="attachment">
+    <input type="file"  class="form-control-file"  id="attachment" formControlName="attachment" (change)="getFileDetails($event)" [ng2FileSize]="{ max: 5120 }" 
+    [fileSizeErrorMsg]="'File size must be less that 1mb and more that 1kb!'">
     </div>
   </div>
 
