@@ -19,8 +19,8 @@
 
       <span  class ="error" *ngIf="myform.get('name').errors?.required && submitted   ">name is required.</span> 
 
-          <span class ="error" *ngIf="myform.get('name').errors?.pattern ">name is not valid </span>
-          <span class ="error" *ngIf="myform.get('name').errors?.maxlength ">max length is 20 </span>
+          <span class ="error" *ngIf="myform.get('name').errors?.pattern && submitted  ">name is not valid </span>
+          <span class ="error" *ngIf="myform.get('name').errors?.maxlength && submitted  ">max length is 20 </span>
           
           
      
@@ -35,7 +35,7 @@
 
           <span  class ="error" *ngIf="myform.get('email').errors?.required && submitted   ">EMAIL is required.</span> 
 
-          <span class ="error" *ngIf="myform.get('email').errors?.pattern ">EMAIL is not valid </span>
+          <span class ="error" *ngIf="myform.get('email').errors?.pattern && submitted ">EMAIL is not valid </span>
 
 
            
@@ -46,8 +46,8 @@
       <div class="form-group row">
          <label for="phone" class="col-sm-2 col-form-label ">PHONE</label>
        <div class="col-sm-6">
-          <input type="text" class="form-control  "  placeholder="9999999999" formControlName="phone">
-          <span class ="error" *ngIf="myform.controls.phone.touched && myform.controls.phone.invalid">phone is not valid</span>
+          <input type="text" class="form-control  "  placeholder="+1(555)-555-5555" formControlName="phone">
+          <span class ="error" *ngIf="myform.controls.phone.touched && myform.controls.phone.invalid && submitted ">phone is not valid</span>
       </div>
     </div>
 
@@ -59,7 +59,7 @@
     <div class="col-sm-8 ml-3">
     <input type="file"  class="form-control-file"  id="attachment" formControlName="attachment" (change)="getFileDetails($event)" >
     <span class = "error" *ngIf="filesize">File Size should be less than 5 mb.</span> 
-    <span class = "error" *ngIf="myform.controls.attachment.invalid && myform.controls.attachment.touched">File type not supported.</span> 
+    <span class = "error" *ngIf="myform.controls.attachment.invalid && myform.controls.attachment.touched && submitted ">File type not supported.</span> 
     </div>
   </div>
 
@@ -70,8 +70,8 @@
          <label for="comment" class="col-sm-2 col-form-label ">COMMENT<span class="compulsory">*</span></label>
        <div class="col-sm-8 mt-0">
           <textarea class="form-control " id="Comment" rows="7" formControlName="comment"></textarea>
-          <span class ="error" *ngIf="myform.controls.comment.touched && myform.get('comment').errors?.maxlength ">Enter 500 below characters</span>
-           <span class ="error" *ngIf="myform.controls.comment.touched && myform.get('comment').errors?.required ">Comments are required</span>
+          <span class ="error" *ngIf="myform.controls.comment.touched && myform.get('comment').errors?.maxlength && submitted  ">Enter 500 below characters</span>
+           <span class ="error" *ngIf="myform.controls.comment.touched && myform.get('comment').errors?.required && submitted ">Comments are required</span>
       </div>
     </div>
     
