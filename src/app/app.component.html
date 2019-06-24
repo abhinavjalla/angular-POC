@@ -15,9 +15,9 @@
          <label for="name" class="col-sm-2 col-form-label">FULLNAME<span class="compulsory">*</span></label>
        <div class="col-sm-8 " >
           <input id="name" class="form-control"
-      formControlName="name" >
+      formControlName="name" [ngClass]="{'is-invalid':myform.get('name').touched && myform.get('name').invalid}" >
 
-      <span  class ="error" *ngIf="myform.get('name').errors?.required && submitted   ">name is required.</span> 
+      <span  class ="error" *ngIf="(myform.get('name').errors?.required && myform.controls.name.touched)||(myform.get('name').errors?.required && submitted) ">name is required.</span> 
 
           <span class ="error" *ngIf="myform.get('name').errors?.pattern && submitted  ">name is not valid </span>
           <span class ="error" *ngIf="myform.get('name').errors?.maxlength && submitted  ">max length is 20 </span>
@@ -33,7 +33,7 @@
           <input type="text" class="form-control " placeholder="e.g. email@email.com" formControlName="email" id="email1"
            [ngClass]="{'is-invalid':myform.get('email').touched && myform.get('email').invalid}">
 
-          <span  class ="error" *ngIf="myform.get('email').errors?.required && submitted   ">EMAIL is required.</span> 
+          <span  class ="error" *ngIf="myform.get('email').errors?.required && myform.controls.email.touched ||(myform.get('email').errors?.required && submitted)   ">EMAIL is required.</span> 
 
           <span class ="error" *ngIf="myform.get('email').errors?.pattern && submitted ">EMAIL is not valid </span>
 
@@ -57,9 +57,10 @@
     <label for="attachment" class="pull-left1" >UPLOAD <br> ATTACHMENT</label>
     
     <div class="col-sm-8 ml-3">
-    <input type="file"  class="form-control-file"  id="attachment" formControlName="attachment" (change)="getFileDetails($event)" >
+    <input type="file"  class="form-control-file"  id="attachment" formControlName="attachment" (change)="getFileDetails($event)"  
+    accept="image/*,.pdf">
     <span class = "error" *ngIf="submitted && fileflag">File Size should be less than 5 mb.</span> 
-    <span class = "error" *ngIf="myform.controls.attachment.invalid && myform.controls.attachment.touched && submitted ">File type not supported.</span> 
+    <span class = "error" *ngIf="myform.get('attachment').errors?.pattern && myform.controls.attachment.dirty ">File type not supported.</span> 
     
     </div>
   </div>
