@@ -58,8 +58,9 @@
     
     <div class="col-sm-8 ml-3">
     <input type="file"  class="form-control-file"  id="attachment" formControlName="attachment" (change)="getFileDetails($event)" >
-    <span class = "error" *ngIf="filesize">File Size should be less than 5 mb.</span> 
+    <span class = "error" *ngIf="submitted && fileflag">File Size should be less than 5 mb.</span> 
     <span class = "error" *ngIf="myform.controls.attachment.invalid && myform.controls.attachment.touched && submitted ">File type not supported.</span> 
+    
     </div>
   </div>
 

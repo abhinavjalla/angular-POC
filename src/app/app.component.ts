@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators ,NG_VALIDATORS, AbstractControl, ValidationErrors, Validator,} from '@angular/forms';
+import {ICustomFile} from 'file-input-accessor'
 
 
 @Component({
@@ -12,9 +13,11 @@ export class AppComponent  implements OnInit {
   
 
    myform: FormGroup;
+   ifile:ICustomFile;
    submitted = false;
     fileflag =false;
    filelimit = 5242880;
+  
 
   //^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$
    emailpt = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
@@ -34,14 +37,14 @@ export class AppComponent  implements OnInit {
       name: new FormControl('', [Validators.required,Validators.maxLength(20),Validators.pattern(this.namept)]),
       email: new FormControl('', [Validators.required,Validators.pattern(this.emailpt)]),
       phone: new FormControl('', [Validators.pattern(this.phnpt)]),
-      attachment:new FormControl('',this.filetype),
+      attachment:new FormControl('',[this.filetype]),
       comment:new FormControl('',[Validators.maxLength(500)])
 
     });
   }
 onSubmit(){
    this.submitted = true;
-   console.log("hello");
+ 
    
 
 }
@@ -52,39 +55,35 @@ onSubmit(){
      if(filetype.toLowerCase() == 'jpeg'||(filetype.toLowerCase() == 'png')||(filetype.toLowerCase() == 'pdf')||(filetype.toLowerCase() == 'jpg')
      )
      {
-      console.log("passed");
+   
        return null;
      }else
      {
-       console.log("failed");
+       
        return{'notvalidformat':true};
      }
 
   }
 
-  // filesizecheck(control:AbstractControl):{[key:string]:any}|null{
-  //   if(this.filesize <=this.filelimit)
-  //   {
-  //     console.log("valid size");
-  //     return null;
-
-  //   }
-  //   else{
-  //     console.log("not valid size");
-  //      return{'notvalidsize':true};
-
-  //   }
-  // }
+  filesizecheck(control:AbstractControl):{[key:string]:any}|null{
+    console.log(control);
+    return null;
+  }
 
   getFileDetails (event) {
+    console.log("get file details");
     for (var i = 0; i < event.target.files.length; i++)
      { 
      
       var filesize = event.target.files[i].size;
-      if(filesize<=this.filelimit){
+      if(filesize>=this.filelimit){
         this.fileflag = true;
+        console.log( this.fileflag);
       }
-      console.log(filesize);
+      else{
+        this.fileflag = false;
+      }
+    
        
        }
   }
