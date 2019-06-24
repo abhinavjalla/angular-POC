@@ -32,10 +32,10 @@ export class AppComponent  implements OnInit {
     this.myform = new FormGroup({
   
       name: new FormControl('', [Validators.required,Validators.maxLength(20),Validators.pattern(this.namept)]),
-      email: new FormControl('', [Validators.required,Validators.minLength(5),Validators.pattern(this.emailpt)]),
-      phone: new FormControl('', [Validators.required,Validators.pattern(this.phnpt)]),
+      email: new FormControl('', [Validators.required,Validators.pattern(this.emailpt)]),
+      phone: new FormControl('', [Validators.pattern(this.phnpt)]),
       attachment:new FormControl('',this.filetype),
-      comment:new FormControl('',[Validators.required,Validators.maxLength(500)])
+      comment:new FormControl('',[Validators.maxLength(500)])
 
     });
   }
