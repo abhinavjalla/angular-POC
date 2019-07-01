@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators ,NG_VALIDATORS, AbstractControl, ValidationErrors, Validator,} from '@angular/forms';
 import {ICustomFile} from 'file-input-accessor'
+import {CustomEllipseDirective} from './custom-ellipse.directive'
 
 
 @Component({

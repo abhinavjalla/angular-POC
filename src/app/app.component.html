@@ -14,7 +14,6 @@
     <div class="form-group row  ">
          <label for="name" class="col-sm-2 col-form-label">FULLNAME<span class="compulsory">*</span></label>
        <div class="col-sm-8 " >
-          <input id="name" class="form-control"
       formControlName="name" >
 
       <span  class ="error" *ngIf="(myform.get('name').errors?.required && myform.controls.name.touched)||(myform.get('name').errors?.required && submitted) ">name is required.</span> 
