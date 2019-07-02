@@ -1,22 +1,23 @@
-import { Directive ,ElementRef,OnInit,Renderer2} from '@angular/core';
+import { Directive ,ElementRef,OnInit,Renderer2 ,DoCheck,Input } from '@angular/core';
 
 
 @Directive({
   selector: '[appCustomEllipse]'
 })
-export class CustomEllipseDirective implements OnInit {
+export class CustomEllipseDirective implements DoCheck  {
+   public valLength;
+   //@Input() inputfocus;
+   constructor(public el: ElementRef, public renderer: Renderer2) {}
 
-  constructor(private el: ElementRef,private renderer:Renderer2) {
 
+   ngDoCheck(){
+         let valLength = this.el.nativeElement.value.length;
+         console.log(valLength );
 
-   }
-
-   ngOnInit(){
-     var InputData = this.el.nativeElement;
-     if(InputData.length > 20)
-     {
-      this.renderer.setStyle(this.el.nativeElement,'text-overflow','ellipsis');
-
-     }
-   }
+        if (valLength > 10) {
+          console.log("inside if");
+           this.renderer.setStyle(this.el.nativeElement,'text-overflow','ellipsis');
+        }
+      
+    }
 }
