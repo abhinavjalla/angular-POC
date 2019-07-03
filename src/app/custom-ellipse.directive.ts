@@ -15,8 +15,11 @@ export class CustomEllipseDirective implements DoCheck  {
          console.log(valLength );
 
         if (valLength > 10) {
-          console.log("inside if");
-           this.renderer.setStyle(this.el.nativeElement,'text-overflow','ellipsis');
+
+          
+          console.log(this.el.nativeElement.value.substring(0,valLength));
+          this.renderer.setValue(this.el.nativeElement.value.substring(0,valLength),'...');
+           //this.renderer.setStyle(this.el.nativeElement,'color','red');
         }
       
     }

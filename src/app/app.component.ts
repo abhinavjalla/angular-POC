@@ -11,7 +11,9 @@ import {CustomEllipseDirective} from './custom-ellipse.directive'
 })
 export class AppComponent  implements OnInit {
 
-  
+ fname ="aaaaaaaaaaaaaaaaaaaaaaaaaaa";
+
+ dummy="Lorem ipsum dolor sit amet, consectetur adipisiscing elit,sed do eiusmod tempor incidiunt ut labore et dolore magna aliqua<br> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip laboris nis aliquip commando consequeat." 
 
    myform: FormGroup;
    ifile:ICustomFile;
